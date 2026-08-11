@@ -166,7 +166,13 @@ Combining these tools makes quality, security, and performance validation part o
 ---
 
 ## Screenshots
-<img src="./assets/k6.png" alt="k6" width="200%" height="500">
+<img src="./assets/k6.png" alt="k6" width="200%" height="400">
+<img src="./assets/sonar-after.png" alt="k6" width="200%" height="400">
+<img src="./assets/sonar-before.png" alt="k6" width="200%" height="400">
+<img src="./assets/sonarcloud.png" alt="k6" width="200%" height="400">
+<img src="./assets/test1.png" alt="k6" width="200%" height="400">
+<img src="./assets/trivy.png" alt="k6" width="200%" height="400">
+<img src="./assets/trivyfixvulnerabilities.png" alt="k6" width="200%" height="400">
 
 # Conclusion
 The completed CI/CD pipeline integrates automated testing, code quality analysis, security scanning, performance validation, secrets management, and policy enforcement.
