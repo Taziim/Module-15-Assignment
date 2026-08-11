@@ -1,12 +1,11 @@
+```yaml
 name: Trivy Security Check
 
 on:
   push:
     branches: ["main"]
-
   pull_request:
     branches: ["main"]
-
   workflow_dispatch:
 
 jobs:
@@ -22,15 +21,33 @@ jobs:
         run: |
           docker build -t cicd-quality-app:1.0 .
 
-      - name: Run Trivy vulnerability scanner
+      # ==========================================
+      # Scan Docker image
+      # ==========================================
+      - name: Trivy Docker Image Scan
         uses: aquasecurity/trivy-action@master
         with:
           image-ref: "cicd-quality-app:1.0"
-          format: "table"
-          exit-code: "0"
-          ignore-unfixed: true
+          format: "json"
+          output: "trivy-image-report.json"
           vuln-type: "os,library"
-          severity: "CRITICAL,HIGH"
+          severity: "CRITICAL,HIGH,MEDIUM"
+          ignore-unfixed: false
+          exit-code: "0"
 
-      - name: Verify Trivy scan completed
-        run: echo "Trivy security scan completed successfully."
+      # ==========================================
+      # Display vulnerability report
+      # ==========================================
+      - name: Display Trivy report
+        run: |
+          cat trivy-image-report.json
+
+      # ==========================================
+      # Upload report to GitHub Actions
+      # ==========================================
+      - name: Upload Trivy report
+        uses: actions/upload-artifact@v4
+        with:
+          name: trivy-vulnerability-report
+          path: trivy-image-report.json
+```
