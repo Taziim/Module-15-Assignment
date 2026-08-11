@@ -1,0 +1,12 @@
+node_modules
+npm-debug.log
+.git
+.github
+coverage
+README.md
+.env
+policy
+k6-results
+.gitignore
+README.md
+sonar-project.properties

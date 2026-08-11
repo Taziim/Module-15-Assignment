@@ -1,0 +1,24 @@
+name: OPA Policy Check
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  policy-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup OPA
+        uses: open-policy-agent/setup-opa@v2
+        with:
+          version: latest
+
+      - name: Evaluate Docker tag policy
+        run: |
+          # Simulate input: our image name and tag
+          echo '{"image": {"name": "cicd-demo", "tag": "latest"}}' | opa eval --input - --data policies/docker.rego "data.docker.deny"
