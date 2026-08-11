@@ -1,4 +1,3 @@
-```yaml
 name: Trivy Security Check
 
 on:
@@ -50,4 +49,3 @@ jobs:
         with:
           name: trivy-vulnerability-report
           path: trivy-image-report.json
-```
