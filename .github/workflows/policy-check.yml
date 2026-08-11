@@ -1,4 +1,4 @@
-name: OPA Policy Check
+name: Policy Check
 
 on:
   push:
@@ -23,5 +23,5 @@ jobs:
         run: |
           echo '{"image": {"name": "cicd-demo", "tag": "latest"}}' |
             opa eval --stdin-input \
-              --data policies/docker.rego \
+              --data policy/docker.rego \
               "data.docker.deny"
