@@ -84,5 +84,9 @@ jobs:
             -Dsonar.tests=tests
             -Dsonar.test.inclusions=tests/**
             -Dsonar.exclusions=**/node_modules/**
+            
+      # Success Message
+      - name: Verify ci-cd completed
+        run: echo "CI-CD Executed successfully"
 
 
