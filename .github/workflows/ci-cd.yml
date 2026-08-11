@@ -67,7 +67,7 @@ jobs:
 
       # Install dependencies
       - name: Install dependencies
-        run: npm ci
+        run: npm i
 
       # Generate coverage report
       - name: Run tests with coverage

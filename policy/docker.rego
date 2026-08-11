@@ -1,6 +1,7 @@
 package docker
-# Deny any image that uses the 'latest' tag
-deny[msg] {
+
+deny contains msg if {
     input.image.tag == "latest"
-    msg := sprintf("Image %s uses forbidden tag 'latest'", [input.image.name])
+
+    msg := "Docker images must not use the latest tag"
 }
