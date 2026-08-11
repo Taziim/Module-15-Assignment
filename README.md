@@ -164,10 +164,13 @@ OPA allows security and operational rules to be automatically checked during CI/
 ## 7. CI/CD Automation
 Combining these tools makes quality, security, and performance validation part of the development workflow instead of relying only on manual testing.
 ---
+
+## Screenshots
+<img src="./assets/k6.png" alt="k6" width="200%" height="500">
+
 # Conclusion
 The completed CI/CD pipeline integrates automated testing, code quality analysis, security scanning, performance validation, secrets management, and policy enforcement.
 This approach improves software reliability and helps detect quality and security problems before the application is deployed.
-
 
 
 
